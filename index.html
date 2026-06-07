@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movy.tel offers instant eSIM plans for travelers — worldwide mobile internet, fast activation, and seamless connectivity in 150+ countries.">
+    <meta property="og:title" content="Movy.tel | Instant eSIM Plans for Travelers">
+    <meta property="og:description" content="Get instant eSIM plans for global travel. Connect seamlessly in 150+ countries with fast activation and reliable coverage.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://movy.tel">
+    <title>Movy.tel | Instant eSIM Plans for Travelers</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load PapaParse for Google Sheets CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script async src="https://assets.endorsely.com/endorsely.js" data-endorsely="7a433fd3-cb57-4eb3-a927-aa320557d7ef"></script>
+    <!-- Schema.org Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Movy.tel",
+      "url": "https://movy.tel",
+      "logo": "https://movy.tel/images/movy.png",
+      "description": "Instant eSIM plans for travelers worldwide. Seamless connectivity in 150+ countries with fast activation.",
+      "sameAs": [
+        "https://www.facebook.com/movy.tel",
+        "https://www.instagram.com/movy.tel"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "support@movy.tel"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Worldwide Mobile Internet",
+      "description": "Global eSIM Mobile Internet Service for 150+ countries. No SIM card, no contract, no subscription required.",
+      "provider": {
+        "@type": "Organization",
+        "name": "SofortNetz.de"
+      },
+      "areaServed": {
+        "@type": "World"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Worldwide Mobile Internet Plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Global Mobile Internet eSIM",
+            "description": "Fast 5G Mobile Internet without contract",
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Bar with Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span style="color: #8b0000; font-weight: 700;">
+                ⭐ NO PHYSICAL SIM CARD. NO CONTRACT. NO SUBSCRIPTION. NO VERIFICATION. INSTANT ACTIVATION. 
+UNLIMITED INTERNET PACKAGES – MAXIMUM SPEED – 5G READY – WORLDWIDE COVERAGE – LOWEST PRICE GUARANTEED – INSTANT ACTIVATION – UNLIMITED DATA
+            </span>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-50 border-b border-slate-300/70 backdrop-blur-xl bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between relative">
+                <a href="/" class="flex items-center">
+                    <img src="images/logo.png" alt="Movy.tel logo" class="h-16 md:h-20 w-auto">
+                </a>
+
+                <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.18em] text-gray-700 md:absolute md:left-1/2 md:-translate-x-1/2">
+                    <a href="#plans" class="hover:text-gray-900 transition">Plans</a>
+                    <a href="#faq" class="hover:text-gray-900 transition">FAQ</a>
+                    <a href="#compatibility" class="hover:text-gray-900 transition">Compatibility</a>
+                    <a href="https://wa.me/+447451285419" class="hover:text-gray-900 transition">Support</a>
+                </nav>
+
+                <div class="flex items-center gap-2 md:ml-auto">
+                    <a href="#plan-selector" class="btn-primary px-4 py-2.5 md:px-5 md:py-3 rounded-full font-semibold text-xs md:text-sm text-white whitespace-nowrap">Browse plans</a>
+                    <button id="mobile-menu-toggle" class="md:hidden p-1 text-gray-700" aria-label="Toggle Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                    <a href="https://wa.me/+447451285419" class="hidden md:inline-flex items-center text-sm font-semibold text-gray-700 hover:text-gray-900 ml-2">Reseller inquiry</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden overflow-hidden transition-all duration-300 max-h-0">
+                <div class="pt-6 pb-2 flex flex-col gap-4 text-xs font-bold uppercase tracking-widest text-gray-700 border-t border-gray-100 mt-4 text-center">
+                    <a href="#plan-selector" class="hover:text-red-600 transition">Plans</a>
+                    <a href="#faq" class="hover:text-red-600 transition">FAQ</a>
+                    <a href="#compatibility" class="hover:text-red-600 transition">Compatibility</a>
+                    <a href="https://wa.me/+447451285419" class="hover:text-red-600 transition">Support</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+            <main class="relative">
+        <section id="plans" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24">
+            <div class="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="max-w-xl space-y-4">
+                        <span class="inline-flex items-center gap-2 rounded-full bg-gray-100/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-gray-600 ring-1 ring-gray-300">
+                            Instant eSIM for travelers
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900">Stay connected worldwide with instant eSIM plans for travelers.</h1>
+                        <p class="text-lg sm:text-xl max-w-2xl text-gray-700 leading-8">Instant activation, global coverage in 150+ countries, and seamless connectivity for your adventures.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-3xl border border-gray-300/70 bg-white/85 p-6">
+                            <h2 class="text-base font-semibold uppercase tracking-[0.22em] text-red-400">Easy activation</h2>
+                            <p class="mt-3 text-gray-700 leading-7">Get your eSIM instantly by email. No physical SIM cards needed.</p>
+                        </div>
+                        <div class="rounded-3xl border border-gray-300/70 bg-white/85 p-6">
+                            <h2 class="text-base font-semibold uppercase tracking-[0.22em] text-red-400">Global coverage</h2>
+                            <p class="mt-3 text-gray-700 leading-7">Connect seamlessly across Europe, the Americas, Asia and more with flexible data bundles.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+                        <a href="#plan-selector" class="btn-primary inline-flex items-center justify-center rounded-full px-6 py-4 text-base font-semibold shadow-xl text-white">Explore eSIM plans</a>
+                        <a href="https://wa.me/+447451285419" class="mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-4 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:text-gray-900 transition">Contact support</a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -right-10 top-10 w-72 h-72 rounded-full bg-red-500/10 blur-3xl"></div>
+                    <div class="absolute -left-10 bottom-10 w-56 h-56 rounded-full bg-red-500/10 blur-3xl"></div>
+                    <div id="plan-selector" class="rounded-[2rem] border border-gray-300/90 bg-white/90 p-8 shadow-2xl ring-1 ring-gray-200/5">
+                        <div class="flex items-center justify-between gap-4 mb-8">
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.28em] text-slate-500">Worldwide eSIM</p>
+                                <h3 class="mt-2 text-2xl font-bold text-gray-900">Instant plan selector</h3>
+                            </div>
+                            <div class="inline-flex items-center rounded-full bg-gray-200/70 px-3 py-2 text-xs uppercase tracking-[0.2em] text-red-400">150+ countries</div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="relative rounded-3xl border border-gray-300/70 bg-white/80 transition-all focus-within:border-red-400 focus-within:ring-2 focus-within:ring-red-400/20">
+                                <label for="plan-search" class="block text-sm font-semibold text-gray-700 px-5 pt-5 cursor-pointer">Search for a plan</label>
+                                <input id="plan-search" type="text" placeholder="Type to search plans..." autocomplete="off" class="w-full bg-transparent px-5 pb-5 pt-2 text-base text-gray-900 outline-none" oninput="filterPlans(this.value)" onfocus="showSuggestions()" onblur="hideSuggestions()">
+                                <div id="suggestions" class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-b-3xl shadow-lg z-20 max-h-60 overflow-y-auto hidden"></div>
+                                <div class="pointer-events-none absolute right-5 top-[60%] -translate-y-1/2 flex items-center text-red-400">
+                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                </div>
+                            </div>
+                            <div id="plan-details" class="hidden rounded-3xl border border-gray-300/70 bg-white/90 p-6 shadow-inner">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <img id="detail-flag" src="" alt="Flag" class="hidden h-12 w-16 rounded-xl object-cover shadow-sm">
+                                    <div>
+                                        <p class="text-sm uppercase tracking-[0.22em] text-slate-500">Selected plan</p>
+                                        <h4 id="detail-name" class="mt-2 text-xl font-bold text-gray-900"></h4>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between gap-3">
+                                    <span class="text-sm text-gray-600">Price</span>
+                                    <span id="detail-price" class="text-3xl font-bold text-red-400"></span>
+                                </div>
+                                <a id="detail-link" href="#" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-red-500 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-red-400">Buy now</a>
+                            </div>
+                            <div id="loading" class="text-center text-slate-400 py-8">
+                                <div class="inline-flex items-center gap-3">
+                                    <svg class="h-8 w-8 animate-spin text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-opacity=".25"></circle><path d="M22 12a10 10 0 0 1-10 10" stroke-linecap="round"></path></svg>
+                                    <span class="text-gray-700">Loading plans...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unlimited Internet Banner -->
+            <div class="mt-20 p-8 md:p-16 rounded-[3rem] border border-gray-300/70 bg-white/95 shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-red-500/5 blur-3xl rounded-full"></div>
+                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-red-500/5 blur-3xl rounded-full"></div>
+                <h2 class="text-5xl md:text-8xl font-black tracking-tighter text-gray-900 mb-8 uppercase animate-text-pulse">Unlimited Internet</h2>
+                <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    All FUP (Fair Usage Policy) packages continue to work at a speed of <span class="font-bold text-red-500">1Mbps</span> after the high-speed data package is spent, until card expiration. Stay connected without limits.
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="rounded-3xl border border-gray-300/70 bg-white/90 p-6">
+                    <p class="text-xs uppercase tracking-[0.24em] text-gray-500">Fast delivery</p>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">QR code delivery</h3>
+                    <p class="mt-3 text-gray-600">Receive your eSIM QR code instantly by email.</p>
+                </div>
+                <div class="rounded-3xl border border-gray-300/70 bg-white/90 p-6">
+                    <p class="text-xs uppercase tracking-[0.24em] text-gray-500">Flexible</p>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">Reloadable plans</h3>
+                    <p class="mt-3 text-gray-600">Add more data anytime while traveling.</p>
+                </div>
+                <div class="rounded-3xl border border-gray-300/70 bg-white/90 p-6">
+                    <p class="text-xs uppercase tracking-[0.24em] text-gray-500">Reliable</p>
+                    <h3 class="mt-4 text-xl font-semibold text-gray-900">Strong coverage</h3>
+                    <p class="mt-3 text-gray-600">Multiple carrier networks for fast speeds worldwide.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-[0.28em] text-red-400">Popular Destinations</span>
+                <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-gray-900">Featured Travel Plans</h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <!-- France -->
+                <div class="flex flex-col items-center p-8 rounded-3xl border border-gray-300/70 bg-white/90 transition duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                    <img src="https://flagcdn.com/w80/fr.png" alt="France Flag" class="w-20 h-auto rounded-md shadow-lg mb-6 object-cover">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center">France 10GB</h3>
+                    <p class="text-sm uppercase tracking-widest text-gray-500 mt-2 mb-6">30 Days Validity</p>
+                    <div class="mt-auto flex flex-col items-center w-full">
+                        <span id="price-fr" class="text-5xl font-black text-red-500 mb-8">€19,90</span>
+                        <a id="link-fr" href="#plan-selector" class="btn-primary w-full py-4 rounded-full font-bold text-white uppercase text-center tracking-widest text-sm">Buy now</a>
+                    </div>
+                </div>
+                <!-- Germany -->
+                <div class="flex flex-col items-center p-8 rounded-3xl border border-gray-300/70 bg-white/90 transition duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                    <img src="https://flagcdn.com/w80/de.png" alt="Germany Flag" class="w-20 h-auto rounded-md shadow-lg mb-6 object-cover">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center">Germany 10GB</h3>
+                    <p class="text-sm uppercase tracking-widest text-gray-500 mt-2 mb-6">30 Days Validity</p>
+                    <div class="mt-auto flex flex-col items-center w-full">
+                        <span id="price-de" class="text-5xl font-black text-red-500 mb-8">€19,90</span>
+                        <a id="link-de" href="#plan-selector" class="btn-primary w-full py-4 rounded-full font-bold text-white uppercase text-center tracking-widest text-sm">Buy now</a>
+                    </div>
+                </div>
+                <!-- Croatia -->
+                <div class="flex flex-col items-center p-8 rounded-3xl border border-gray-300/70 bg-white/90 transition duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                    <img src="https://flagcdn.com/w80/hr.png" alt="Croatia Flag" class="w-20 h-auto rounded-md shadow-lg mb-6 object-cover">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center">Croatia 10GB</h3>
+                    <p class="text-sm uppercase tracking-widest text-gray-500 mt-2 mb-6">30 Days Validity</p>
+                    <div class="mt-auto flex flex-col items-center w-full">
+                        <span id="price-hr" class="text-5xl font-black text-red-500 mb-8">€19,90</span>
+                        <a id="link-hr" href="#plan-selector" class="btn-primary w-full py-4 rounded-full font-bold text-white uppercase text-center tracking-widest text-sm">Buy now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activation period banner -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="rounded-3xl border border-gray-300/70 bg-white/90 p-6 md:px-10 flex items-center gap-6 shadow-sm">
+                <div class="hidden sm:flex flex-shrink-0 h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900">Buy now, travel later</h3>
+                    <p class="text-gray-700">Any eSIM purchased from Movy.tel can be activated up to <span class="font-bold text-red-600">180 days</span> after purchase. Enjoy total flexibility for your upcoming travels.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-[0.28em] text-red-400">Why choose Movy.tel</span>
+                <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-gray-900">Perfect for travelers worldwide</h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90">
+                    <p class="text-sm uppercase tracking-[0.24em] text-gray-500">Speed</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-red-400">Instant activation</h3>
+                    <p class="mt-4 text-gray-700">Get connected in seconds with QR code delivery.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90">
+                    <p class="text-sm uppercase tracking-[0.24em] text-gray-500">Coverage</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-red-400">Global connectivity</h3>
+                    <p class="mt-4 text-gray-700">Support for 150+ countries with premium networks.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90">
+                    <p class="text-sm uppercase tracking-[0.24em] text-gray-500">Support</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-red-400">24/7 customer service</h3>
+                    <p class="mt-4 text-gray-700">Get help anytime with our dedicated support team.</p>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Frequently asked questions</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Everything you need to know about eSIM plans for travel.</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90 feature-card">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.90.812-2.15.825-3.75.512m0-6.867a3 3 0 1 1 6 0M15 12a3 3 0 1 1-6 0m6 0a3 3 0 1 0-6 0m6 0h.008v.008h-.008v-.008Zm0 5.25a6.75 6.75 0 1 1-13.5 0 6.75 6.75 0 0 1 13.5 0Z" /></svg>
+                        <h3 class="text-xl font-semibold text-red-400">How does eSIM work?</h3>
+                    </div>
+                    <p class="text-gray-700">eSIM is a digital SIM card. Scan the QR code we send you or click the link and activate instantly on your compatible device.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90 feature-card delay-1">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                        <h3 class="text-xl font-semibold text-red-400">How long is the QR code valid?</h3>
+                    </div>
+                    <p class="text-gray-700">Your eSIM is valid for <strong>180 days</strong> after purchase. Activate when you arrive at your destination.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90 feature-card delay-2">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
+                        <h3 class="text-xl font-semibold text-red-400">Can I reload data?</h3>
+                    </div>
+                    <p class="text-gray-700">Yes! All our data plans are <strong>reloadable</strong>. Add more data anytime while your eSIM is active.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-300/70 bg-white/90 feature-card delay-3">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-400 mr-3 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.413 1.68l-1.225.956a1.5 1.5 0 0 0-.499 1.168V15a3 3 0 0 0 3 3h.375a2.25 2.25 0 0 1 2.25 2.25V21m-9-6a2.25 2.25 0 0 0-2.25 2.25V21m3-2.25V18.75a2.25 2.25 0 0 1 2.25-2.25h1.312c.417 0 .825.126 1.178.365l.552.368a1.5 1.5 0 0 0 1.657 0l.552-.368a3.004 3.004 0 0 1 3.253 0l2.715 1.81" /></svg>
+                        <h3 class="text-xl font-semibold text-red-400">How do I get support?</h3>
+                    </div>
+                    <p class="text-gray-700">Contact our <strong>24/7 support team</strong> through our website chat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Device Compatibility Section -->
+        <section id="compatibility" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-[0.28em] text-red-400">Compatibility Check</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-3">Check if your device is eSIM ready</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Most modern smartphones support eSIM technology. Use our search tool below to verify your device compatibility before purchasing.</p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="relative p-2 rounded-[2.5rem] border border-gray-300/70 bg-white/90 shadow-xl focus-within:ring-2 focus-within:ring-red-400/20 transition-all">
+                    <div class="flex flex-col sm:flex-row items-center gap-2">
+                        <div class="relative flex-grow w-full">
+                            <input type="text" id="deviceInput" autocomplete="off" placeholder="Search device (e.g. iPhone 15)..." 
+                                class="w-full bg-transparent px-6 py-4 text-gray-900 outline-none placeholder:text-gray-400">
+                            <!-- Suggestions Box -->
+                            <div id="device-suggestions" class="hidden absolute left-0 right-0 top-full mt-4 bg-white border border-gray-200 rounded-3xl shadow-2xl z-50 max-h-64 overflow-y-auto"></div>
+                        </div>
+                        <button onclick="checkCompatibility()" class="btn-primary w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white uppercase tracking-wider text-sm whitespace-nowrap">Check Now</button>
+                    </div>
+                </div>
+                <div id="checkResult" class="mt-6 text-center font-semibold min-h-[1.5rem]"></div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Cookie Consent -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
+            <div class="flex-1 text-sm text-slate-200">
+                We use cookies for essential functions and to improve our site. See our <a href="privacy.html" class="text-red-300 underline hover:text-red-200">Privacy Policy</a>.
+            </div>
+            <div class="cookie-banner__actions">
+                <button id="cookie-decline" class="cookie-btn secondary">Essential only</button>
+                <button id="cookie-accept" class="cookie-btn primary">Accept all</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-slate-300/70 text-center">
+        <!-- Logo -->
+        <div class="mb-6 flex justify-center">
+            <a href="/" class="flex-shrink-0">
+                <img src="images/logo.png" alt="Movy.tel logo" class="h-16 md:h-20 w-auto">
+            </a>
+        </div>
+        
+        <p class="text-sm mb-2 text-gray-900">© 2026 MOVY.TEL | Worldwide Mobile Internet for Travelers.</p>
+        <p class="text-xs text-gray-600 mb-4">Powered by eSIM Technology (Global Coverage, No Contract).</p>
+
+        <!-- Payment Methods Image -->
+        <div class="flex justify-center mb-6 mt-4">
+            <img src="images/payments.png" alt="Sichere Zahlungsmethoden" class="h-12 sm:h-16 w-auto opacity-100" onerror="this.style.display='none'">
+        </div>
+
+        <!-- Links -->
+        <div class="mt-4 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4 text-xs font-bold uppercase tracking-[0.18em]">
+            <a href="privacy.html" class="hover:opacity-70 transition" style="color: #8b0000;">PRIVACY POLICY</a>
+            <span class="hidden md:inline text-gray-400">–</span>
+            <a href="refund.html" class="hover:opacity-70 transition" style="color: #8b0000;">REFUND POLICY</a>
+            <span class="hidden md:inline text-gray-400">–</span>
+            <a href="https://wa.me/+447451285419" class="hover:opacity-70 transition" style="color: #8b0000;">SUPPORT</a>
+        </div>
+    </footer>
+    
+    <!-- Floating WhatsApp Support Button -->
+    <a href="https://wa.me/+447451285419" target="_blank" class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 md:bottom-8 md:right-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-8 w-8">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.96C.16 5.307 5.268.199 11.533.199c3.17 0 6.167 1.237 8.413 3.484a11.82 11.82 0 013.481 8.412c-.003 6.266-5.112 11.373-11.378 11.373a11.9 11.9 0 01-5.943-1.53L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.003 1.593 4.943.003 8.964-4.013 8.967-8.957.002-4.944-4.011-8.964-8.955-8.967-4.944-.003-8.964 4.011-8.967 8.955a8.93 8.93 0 001.544 5.023l-.999 3.648 3.407-1.295zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.297-.496.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.207-.242-.579-.487-.501-.669-.51-.173-.009-.372-.011-.57-.011-.198 0-.521.074-.793.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+        </svg>
+        <span class="sr-only">Support</span>
+    </a>
+
+    <script src="main.js" defer></script>
+    <script>
+        let plansData = [];
+        const countryToIso = {
+            "germany": "de", "deutschland": "de", "france": "fr", "frankreich": "fr",
+            "italy": "it", "italien": "it", "spain": "es", "spanien": "es",
+            "united kingdom": "gb", "uk": "gb", "grossbritannien": "gb", "england": "gb",
+            "usa": "us", "united states": "us", "vereinigte staaten": "us", "america": "us",
+            "turkey": "tr", "türkei": "tr", "austria": "at", "österreich": "at",
+            "switzerland": "ch", "schweiz": "ch", "netherlands": "nl", "niederlande": "nl",
+            "belgium": "be", "belgien": "be", "portugal": "pt", "greece": "gr", "griechenland": "gr",
+            "poland": "pl", "polen": "pl", "czech": "cz", "tschechien": "cz",
+            "denmark": "dk", "dänemark": "dk", "sweden": "se", "schweden": "se",
+            "norway": "no", "norwegen": "no", "finland": "fi", "finnland": "fi",
+            "ireland": "ie", "irland": "ie", "croatia": "hr", "kroatien": "hr",
+            "serbia": "rs", "serbien": "rs", "bulgaria": "bg", "bulgarien": "bg",
+            "romania": "ro", "rumänien": "ro", "hungary": "hu", "ungarn": "hu",
+            "slovakia": "sk", "slowakei": "sk", "slovenia": "si", "slowenien": "si",
+            "cyprus": "cy", "zypern": "cy", "malta": "mt", "estonia": "ee",
+            "latvia": "lv", "lithuania": "lt", "luxembourg": "lu", "iceland": "is",
+            "europe": "eu", "europa": "eu", "china": "cn", "japan": "jp",
+            "south korea": "kr", "korea": "kr", "thailand": "th", "vietnam": "vn",
+            "indonesia": "id", "malaysia": "my", "singapore": "sg",
+            "philippines": "ph", "india": "in", "australia": "au", "new zealand": "nz",
+            "canada": "ca", "mexico": "mx", "brazil": "br", "argentina": "ar",
+            "egypt": "eg", "morocco": "ma", "south africa": "za", "uae": "ae",
+            "dubai": "ae", "israel": "il", "saudi arabia": "sa", "qatar": "qa",
+            "kuwait": "kw", "albania": "al", "macedonia": "mk", "montenegro": "me",
+            "bosnia": "ba", "russia": "ru", "ukraine": "ua", "world": "un", "global": "un"
+        };
+
+        function loadPlans() {
+            // Check if Papa is loaded
+            if (typeof Papa === 'undefined') {
+                console.warn('PapaParse not loaded yet, retrying...');
+                setTimeout(loadPlans, 500);
+                return;
+            }
+            const sheetId = '153-rydstecb7sU0nb4w3BCV3XQkCHsZg';
+            const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
+
+            Papa.parse(csvUrl, {
+                header: true,
+                download: true,
+                dynamicTyping: false,
+                skipEmptyLines: true,
+                complete: function (results) {
+                    if (!results.data || results.data.length === 0) {
+                        document.getElementById('loading').innerHTML = '<p class="text-red-400">Error loading plans.</p>';
+                        return;
+                    }
+
+                    plansData = results.data.filter(row =>
+                        row['Plan Name'] && row['Plan Name'].trim() &&
+                        row['Retail EUR'] && row['Retail EUR'].trim() &&
+                        row['Direct Link'] && row['Direct Link'].trim()
+                    );
+
+                    if (plansData.length === 0) {
+                        document.getElementById('loading').innerHTML = '<p class="text-red-400">No plans available.</p>';
+                        return;
+                    }
+
+                    updateFeaturedPlans();
+                    document.getElementById('loading').classList.add('hidden');
+                },
+                error: function (error) {
+                    document.getElementById('loading').innerHTML = '<p class="text-red-400">Error loading plans.</p>';
+                }
+            });
+        }
+
+        function filterPlans(searchTerm) {
+            const suggestions = document.getElementById('suggestions');
+            const input = document.getElementById('plan-search');
+            
+            // Check if plans data is loaded
+            if (!plansData || plansData.length === 0) {
+                return;
+            }
+            
+            if (!searchTerm.trim()) {
+                suggestions.classList.add('hidden');
+                document.getElementById('plan-details').classList.add('hidden');
+                document.getElementById('related-services-container').classList.add('hidden');
+                return;
+            }
+
+            const filteredPlans = plansData
+                .map((plan, index) => ({ plan, index }))
+                .filter(({ plan }) => {
+                    const planName = plan['Plan Name'].toLowerCase();
+                    const country = (plan['Country'] || '').toLowerCase();
+                    const search = searchTerm.toLowerCase();
+                    return planName.includes(search) || country.includes(search);
+                })
+                .slice(0, 10); // Limit to 10 suggestions
+
+            if (filteredPlans.length > 0) {
+                suggestions.innerHTML = filteredPlans.map(({ plan, index }) => {
+                    const price = plan['Retail EUR'].trim();
+                    const displayPrice = price.includes('€') ? price : '€' + price;
+                    return `<div class="px-5 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" onclick="selectPlan(${index}); document.getElementById('suggestions').classList.add('hidden');">
+                        <div class="font-semibold text-gray-900">${plan['Plan Name'].trim()}</div>
+                        <div class="text-sm text-gray-600">${displayPrice}</div>
+                    </div>`;
+                }).join('');
+                suggestions.classList.remove('hidden');
+            } else {
+                suggestions.innerHTML = '<div class="px-5 py-3 text-gray-500">No plans found</div>';
+                suggestions.classList.remove('hidden');
+                document.getElementById('plan-details').classList.add('hidden');
+                // document.getElementById('related-services-container').classList.add('hidden');
+            }
+        }
+
+        function showSuggestions() {
+            const input = document.getElementById('plan-search');
+            if (input.value.trim()) {
+                filterPlans(input.value);
+            }
+        }
+
+        function hideSuggestions() {
+            // Delay hiding to allow click on suggestions
+            setTimeout(() => {
+                document.getElementById('suggestions').classList.add('hidden');
+            }, 150);
+        }
+
+        function updateFeaturedPlans() {
+            const featured = [
+                { id: 'fr', query: 'france' },
+                { id: 'de', query: 'germany' },
+                { id: 'hr', query: 'croatia' }
+            ];
+            const preferredMatches = ['10gb 30days', '10gb 30 days', '10gb/30days', '10gb/30 days'];
+
+            featured.forEach(item => {
+                const match = plansData.find(p => {
+                    const name = (p['Plan Name'] || '').toLowerCase();
+                    return name.includes(item.query) && preferredMatches.some(s => name.includes(s));
+                }) || plansData.find(p => {
+                    const name = (p['Plan Name'] || '').toLowerCase();
+                    return name.includes(item.query) && name.includes('10gb');
+                });
+
+                if (match) {
+                    const priceEl = document.getElementById(`price-${item.id}`);
+                    const linkEl = document.getElementById(`link-${item.id}`);
+                    if (priceEl && linkEl) {
+                        const price = match['Retail EUR'].trim();
+                        priceEl.textContent = price.includes('€') ? price : '€' + price;
+                        linkEl.href = match['Direct Link'].trim();
+                        linkEl.target = "_blank";
+                    }
+                }
+            });
+        }
+
+        function createRelatedPlanCard(plan) {
+            const div = document.createElement('div');
+            div.className = 'panel flex flex-col items-center p-6 rounded-xl border border-slate-700/60 relative transition duration-300 hover:scale-[1.02] hover:-translate-y-1';
+
+            const price = plan['Retail EUR'].trim();
+            const displayPrice = price.includes('€') ? price : '€' + price;
+            const planName = plan['Plan Name'].trim();
+            const link = plan['Direct Link'].trim();
+
+            let isoCode = plan['ISO'] || plan['iso'] || plan['Code'] || plan['code'] || plan['ISO Code'] || plan['Country Code'] || plan['iso2'] || plan['ISO2'];
+            if (!isoCode) {
+                const nameLower = planName.toLowerCase();
+                const sortedKeys = Object.keys(countryToIso).sort((a, b) => b.length - a.length);
+                for (const name of sortedKeys) {
+                    if (nameLower.includes(name)) {
+                        isoCode = countryToIso[name];
+                        break;
+                    }
+                }
+            }
+            
+            const flagSrc = isoCode ? `https://flagcdn.com/w80/${isoCode.trim().toLowerCase()}.png` : "https://cdn-icons-png.flaticon.com/512/921/921490.png";
+
+            div.innerHTML = `
+                <img src="${flagSrc}" alt="Flag" class="w-16 h-auto rounded-md shadow-lg mb-4 object-cover" onerror="this.src='https://cdn-icons-png.flaticon.com/512/921/921490.png'; this.classList.add('p-2', 'bg-gray-200');">
+                <h4 class="text-base font-bold text-gray-900 text-center mb-3 h-12 flex items-center justify-center">${planName}</h4>
+                <div class="flex flex-col items-center mt-auto pt-4">
+                    <span class="text-5xl font-extrabold text-red-400 mb-4">${displayPrice}</span>
+                    <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn-primary w-full py-2 rounded-lg font-bold text-white uppercase text-center">Buy Now</a>
+                </div>
+            `;
+
+            return div;
+        }
+
+        function populateRelatedServices(selectedPlan) {
+            const grid = document.getElementById('related-services-grid');
+            grid.innerHTML = '';
+
+            const otherPlans = plansData.filter(p => p !== selectedPlan);
+            const shuffled = otherPlans.sort(() => 0.5 - Math.random());
+            const plansToShow = shuffled.slice(0, 9);
+
+            plansToShow.forEach(plan => {
+                grid.appendChild(createRelatedPlanCard(plan));
+            });
+            
+            if (plansToShow.length > 0) {
+                document.getElementById('related-services-container').classList.remove('hidden');
+            }
+        }
+
+        function selectPlan(index) {
+            if (index === "" || index === null) {
+                document.getElementById('plan-details').classList.add('hidden');
+                // document.getElementById('related-services-container').classList.add('hidden');
+                return;
+            }
+
+            const plan = plansData[index];
+            console.log('Selected plan:', plan);
+            const price = plan['Retail EUR'].trim();
+            
+            // Update the search input with the selected plan name
+            document.getElementById('plan-search').value = plan['Plan Name'].trim();
+            
+            // Hide suggestions
+            document.getElementById('suggestions').classList.add('hidden');
+            
+            // Flag logic
+            let isoCode = plan['ISO'] || plan['iso'] || plan['Code'] || plan['code'] || plan['ISO Code'] || plan['Country Code'] || plan['iso2'] || plan['ISO2'];
+            
+            // If no explicit ISO code, try to map from Plan Name
+            if (!isoCode) {
+                const planName = (plan['Plan Name'] || '').toLowerCase();
+                const sortedKeys = Object.keys(countryToIso).sort((a, b) => b.length - a.length);
+                for (const name of sortedKeys) {
+                    if (planName.includes(name)) {
+                        isoCode = countryToIso[name];
+                        break;
+                    }
+                }
+            }
+
+            const flagImg = document.getElementById('detail-flag');
+            if (isoCode) {
+                flagImg.src = `https://flagcdn.com/w80/${isoCode.trim().toLowerCase()}.png`;
+                flagImg.classList.remove('hidden');
+            } else {
+                // Fallback icon (Globe)
+                flagImg.src = "https://cdn-icons-png.flaticon.com/512/921/921490.png"; 
+                flagImg.classList.remove('hidden');
+            }
+
+            document.getElementById('detail-name').textContent = plan['Plan Name'].trim();
+            document.getElementById('detail-price').textContent = price.includes('€') ? price : '€' + price;
+            document.getElementById('detail-link').href = plan['Direct Link'].trim();
+            document.getElementById('plan-details').classList.remove('hidden');
+
+            // Populate and show related services
+            // populateRelatedServices(plan);
+            // document.getElementById('related-services-container').classList.remove('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPlans);
+    </script>
+</body>
+</html>
