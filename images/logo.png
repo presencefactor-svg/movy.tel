@@ -87,19 +87,19 @@
 <h3 class="text-2xl font-semibold mb-2">Germany 10GB</h3>
 <p class="text-gray-400 mb-4">30 Days Validity</p>
 <div class="text-3xl font-bold mb-6">€19.90</div>
-<a class="inline-block px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-700 transition" href="https://factorydirect.esimqr.link/pay/eur/DE_10_30">Order Now</a>
+<a class="inline-block px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-700 transition" href="/cdn-cgi/l/email-protection#c6afa8a0a986aba9b0bfe8b2a3aaf9b5b3a4aca3a5b2fb81a3b4aba7a8bfe3f4f6f7f68184e3f4f696aaa7a8">Order Now</a>
 </div>
 <div class="p-8 rounded-2xl border border-gray-700 bg-darkbg glow-effect">
 <h3 class="text-2xl font-semibold mb-2">France 10GB</h3>
 <p class="text-gray-400 mb-4">30 Days Validity</p>
 <div class="text-3xl font-bold mb-6">€19.90</div>
-<a class="inline-block px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-700 transition" href="https://factorydirect.esimqr.link/pay/eur/FR_10_30">Order Now</a>
+<a class="inline-block px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-700 transition" href="/cdn-cgi/l/email-protection#7b12151d143b16140d02550f1e1744080e19111e180f463d091a15181e5e494b4a4b3c395e494b2b171a15">Order Now</a>
 </div>
 <div class="p-8 rounded-2xl border border-gray-700 bg-darkbg glow-effect">
 <h3 class="text-2xl font-semibold mb-2">Croatia 10GB</h3>
 <p class="text-gray-400 mb-4">30 Days Validity</p>
 <div class="text-3xl font-bold mb-6">€19.90</div>
-<a class="inline-block px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-700 transition" href="https://factorydirect.esimqr.link/pay/eur/HR_10_30">Order Now</a>
+<a class="inline-block px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-700 transition" href="/cdn-cgi/l/email-protection#137a7d757c537e7c656a3d67767f2c606671797670672e50617c72677a7236212322235451362123437f727d">Order Now</a>
 </div>
 </div>
 </div>
@@ -415,7 +415,7 @@ UNLIMITED INTERNET PACKAGES – MAXIMUM SPEED – 5G READY – WORLDWIDE COVERAG
 </svg>
 <span class="sr-only">Support</span>
 </a>
-<script defer="" src="main.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer="" src="main.js"></script>
 <script>
         let plansData = [];
         const countryToIso = {
